@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function PostBlogCard({ title, description, slug, imageUrl, author, date, tags }: IPostBlog) {
   return (
-    <Link href={`/blog/${slug}`}>
+    <Link href={`/${slug}`}>
       <Card className="flex flex-col md:flex-row gap-4 p-4 md:p-6 w-full max-w-2xl bg-zinc-50 dark:bg-zinc-900">
         {imageUrl && (
           <div className="shrink-0 w-full md:w-40 h-40 relative rounded-lg overflow-hidden">

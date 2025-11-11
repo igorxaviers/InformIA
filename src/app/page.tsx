@@ -1,5 +1,3 @@
-import Image from "next/image"
-import { Button } from "../components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import {
   InputGroup,
@@ -7,7 +5,6 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group"
 import { SearchIcon } from "lucide-react";
-import { Card } from "@/components/ui/card";
 import { PostBlogCard } from "@/components/ui/post-blog-card";
 import { IPostBlog } from "@/types/postblog";
 
@@ -25,6 +22,7 @@ export default function Home() {
       title: "Como a IA está mudando o mundo",
       description: "Descubra como a inteligência artificial está impactando diferentes setores e o que esperar do futuro.",
       imageUrl: "/ai-world.jpg",
+      slug: "como-a-ia-esta-mudando-o-mundo",
       author: { name: "João Silva", avatarUrl: "https://placehold.co/24x24" },
       date: "10 Nov 2025",
       tags: [{ name: "IA" }, { name: "Tecnologia" }, { name: "Futuro" }],
@@ -47,14 +45,14 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex min-h-screen items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center font-sans">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32 px-6 md:px-16 bg-white dark:bg-black sm:items-start">
         <section className="w-full">
           <h1 className="max-w-xs text-6xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50 mb-4 md:mb-6">
             InformIA
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400 mb-4 md:mb-8">
-            Informe-se, aprenda e cresça com InformIA, sua fonte confiável impulsionada por IA.
+            Informe-se com a sua fonte confiável impulsionada por IA.
           </p>
           <InputGroup className="mb-8 md:mb-12">
             <InputGroupInput placeholder="Pesquise..." id="search-input" />
