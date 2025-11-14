@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/input-group"
 import { SearchIcon } from "lucide-react";
 import { PostBlogCard } from "@/components/ui/post-blog-card";
-import { IPostBlog } from "@/types/postblog";
+import { IPostBlogList } from "@/types/postblog";
 
 export default function Home() {
   const mainTopics = [
@@ -17,29 +17,32 @@ export default function Home() {
     "Inovação",
   ];
 
-  const examplePosts: IPostBlog[] = [
+  const examplePosts: IPostBlogList[] = [
     {
+      id: '1',
       title: "Como a IA está mudando o mundo",
       description: "Descubra como a inteligência artificial está impactando diferentes setores e o que esperar do futuro.",
       imageUrl: "/ai-world.jpg",
       slug: "como-a-ia-esta-mudando-o-mundo",
-      author: { name: "João Silva", avatarUrl: "https://placehold.co/24x24" },
+      author: {id: '1', name: "João Silva", avatarUrl: "https://placehold.co/24x24" },
       date: "10 Nov 2025",
-      tags: [{ name: "IA" }, { name: "Tecnologia" }, { name: "Futuro" }],
+      tags: [{ id: '1', name: "IA" }, { id: '2', name: "Tecnologia" }, { id: '3', name: "Futuro" }],
     },
     {
+      id: '2',
       title: "5 tendências em tecnologia para 2026",
       description: "Fique por dentro das principais tendências tecnológicas que vão dominar o próximo ano.",
       imageUrl: "/tech-trends.jpg",
-      author: { name: "Maria Souza" },
+      author: { id: '1', name: "Maria Souza" },
       date: "9 Nov 2025",
-      tags: [{ name: "Tecnologia" }, { name: "Tendências" }, { name: "Futuro" }],
+      tags: [{ id: '1', name: "Tecnologia" }, { id: '2', name: "Tendências" }, { id: '3', name: "Futuro" }],
     },
     {
+      id: '3',
       title: "Programação para iniciantes: por onde começar?",
       description: "Dicas essenciais para quem quer dar os primeiros passos no mundo da programação.",
       imageUrl: "/programming.jpg",
-      author: { name: "Carlos Lima" },
+      author: { id: '1', name: "Carlos Lima" },
       date: "8 Nov 2025",
     },
   ];
