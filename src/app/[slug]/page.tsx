@@ -4,9 +4,15 @@ import { notFound } from 'next/navigation';
 import { getPostBySlug } from '@/services/posts';
 import { Badge } from '@/components/ui/badge';
 import { Author } from '@/components/postblog/author';
+import { Metadata } from 'next';
 
 interface PostDetailPageProps {
   params: Promise<{ slug: string }>;
+}
+
+const metadata: Metadata = {
+  title: '',
+  description: ''
 }
 
 export default async function PostDetailPage(props: PostDetailPageProps) {
@@ -62,8 +68,8 @@ export default async function PostDetailPage(props: PostDetailPageProps) {
         <p className="text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed mb-8 font-medium">
           {post.description}
         </p>
-        <div className="whitespace-pre-wrap text-zinc-800 dark:text-zinc-200 leading-relaxed">
-          {post.content}
+        <div dangerouslySetInnerHTML={{ __html: post.content }} className="whitespace-pre-wrap text-zinc-800 dark:text-zinc-200 leading-relaxed">
+          
         </div>
       </div>
     </div>

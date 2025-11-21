@@ -120,7 +120,7 @@ export async function getPostBySlug(slug: string): Promise<IPostBlog | null> {
       )
     `)
     .eq('slug', slug)
-    .eq('status', 'published')
+    // .eq('status', 'published')
     .single();
 
   if (error) {
@@ -147,6 +147,52 @@ export async function getPostBySlug(slug: string): Promise<IPostBlog | null> {
       id: pt.tags.id,
       name: pt.tags.name,
       slug: pt.tags.slug
-    })) : []
+    })) : [],
   };
+}
+
+export interface PostInsert {
+  title: string;
+  slug: string;
+  content: string;
+  summary: string;
+  author_id: string | null;
+  seo_title: string;
+  seo_description: string;
+  hero_image_url: string;
+  published_at: string | null;
+  status: string;
+}
+
+export async function createPost(postData: PostInsert, tagIds: string[]) {
+  // 1. Insert Post
+  const { data: post, error: postError } = await supabase
+    .from("posts")
+    .insert(postData)
+    .select()
+    .single();
+
+  if (postError) {
+    console.error("Error creating post:", postError);
+    throw postError;
+  }
+
+  // 2. Insert Post Tags
+  if (tagIds.length > 0 && post) {
+    const postTags = tagIds.map(tagId => ({
+      post_id: post.id,
+      tag_id: tagId
+    }));
+    
+    const { error: tagsError } = await supabase
+      .from("posts_tags")
+      .insert(postTags);
+      
+    if (tagsError) {
+      console.error("Error creating post tags:", tagsError);
+      throw tagsError;
+    }
+  }
+
+  return post;
 }

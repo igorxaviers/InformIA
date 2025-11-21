@@ -7,7 +7,7 @@ export async function PostList({ search }: { search?: string }) {
       ? await getPostsSearch(search) 
       : await getPosts(1, 10);
 
-    if (posts.length === 0) {
+    if (posts.length === 0 && search) {
       return (
         <div className="w-full text-center py-10 text-zinc-500">
           <p>Nenhum post encontrado{search ? ` para "${search}"` : ''}.</p>

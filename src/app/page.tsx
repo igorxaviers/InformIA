@@ -19,7 +19,7 @@ export default async function Home(props: HomeProps) {
           <h1 className="max-w-xs text-6xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50 mb-4 md:mb-6">
             InformIA
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400 mb-4 md:mb-8">
+          <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400 mb-4 md:mb-8">
             Informe-se com a sua fonte confiável impulsionada por IA.
           </p>
           <SearchInput />
